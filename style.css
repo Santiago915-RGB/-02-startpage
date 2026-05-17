@@ -1,0 +1,46 @@
+body {
+	background: black;
+	color: #f00;
+	font-family: 'Monaco 9';
+	font-size: 16px;
+	color: #f00;
+}
+a {
+    color: #f00;
+	text-decoration: none;
+}
+*::selection {
+  color: #fff;
+
+  background: #f00;
+}
+.main  {
+	width: 451px;
+	display: table;
+}
+.th {
+	font-family: 'Mona12';
+	font-size: 12px;
+}
+.th, .tc {
+	justify-content: space-around;
+	display: flex;
+}
+.tc div, .th div {
+	text-align: center;
+	background: linear-gradient(#fff, #c0c0c0);
+	border-left: 1px solid #c0c0c0;
+	flex: 1;
+	border-top: 1px solid #c0c0c0;
+}
+.tc div {
+	height: 8rem;
+}
+.th div:last-of-type, .tc div:last-of-type  {
+	border-right: 1px solid #c0c0c0;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+  }

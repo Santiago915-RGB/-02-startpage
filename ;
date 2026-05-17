@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+
+<div style="background: blue" class="father">
+  <div class="m">
+    <div>a</div>
+    <div>神</div>
+    <div>具</div>
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+  </div>
+  <div class="x">
+    <div>a</div>
+    <div>a</div>
+    <div>a</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <table>
+	<thead>
+		<th>a</th>
+		<th>神</th>
+		<th>具</th>
+		<th>z</th>
+		<th>s</th>
+		<th>q</th>
+	</thead>
+	<tbody>
+<tr>
+	      <th>
+		  Mail<br>
+		  <a href="https://www.linkedin.com/in/santiago-gomez-94484037a/">linkedin</a><br>
+		  <a href="https://github.com/Santiago915-RGB/">github</a>
+	      </th>
+	      <th>
+		<a href="https://8chan.moe/hisparefugio/">hisparefugio</a><br>
+		<a href="https://wired-7.org">wired-7</a><br>
+		<a href="https://wizchan.org">/wiz/</a><br>
+		<a href="https://mangadex.org">mangadex</a><br>
+		<a href="https://readcomiconline.li">rco</a>
+	      </th>
+	      <th>
+	        <a href="https://snipboard.io/">snipboard</a><br>
+		<a href="https://pixspy.com">pixspy</a><br>
+		<a href="https://vk.com/font0mass">fontomass</a>
+	      </th>
+	      <th>
+		<a href="https://boards.4chan.org/sci/">/sci/</a>
+	      </th>
+	      <th>
+		<details>
+		  <summary>Gentoo sites</summary>
+	        <ul>
+		  <li><a href="https://bugs.gentoo.org/">Bugzilla</a></li>
+		  <li><a href="https://forums.gentoo.org/">Forums</a></li>
+		  <li><a href="https://packages.gentoo.org/">Packages</a></li>
+		  <li><a href="https://planet.gentoo.org/">Planet<br>Gentoo</a></li>
+		  <li><a href="https://wiki.gentoo.org/wiki/Main_Page">Wiki</a></li>
+	        </ul>
+		</details>
+	      </th>
+	      <th>
+	        <ul>
+		  <li>jap movies</li>
+		  <li>/jp/</li>
+	        </ul>
+	      </th>
+            <tr>
+
+	</tbody>
+  </table>
+  <script src="app.js"></script>
+</body>
+ <style>
+  html, body {
+	background: black;
+	color: #f00;
+	font-family: 'Monaco 9';
+	font-size: 16px;
+	color: #f00;
+  }
+  thead {
+    font-family: 'Mona12';
+	font-size: 12px;
+  }
+  a {
+    color: #f00;
+	text-decoration: none;
+  }
+  table {
+	display: none;
+  }
+  .father  {
+	display:table;
+  }
+ </style>
+</html>
