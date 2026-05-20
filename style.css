@@ -137,6 +137,7 @@ ul {
 	position: relative;
 	height: 100%;
 	padding: 5px;
+	padding-left: 2px;
 	border-top: 1px solid var(--secondary);
 }
 .n-row:nth-of-type(even) {
@@ -148,7 +149,7 @@ ul {
 	width: auto;
 	box-sizing: border-box;
 	max-width: 100%; padding-left: 0; padding-right: 0;
-	padding-right: 5px;
+	padding-right: 2px;
 	padding-top: 2px;
 }
 .image-contents > img {
@@ -161,6 +162,10 @@ ul {
   padding-right: 3px;
   color: #0f0;
   border: 1px solid #c0c0c0;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  margin: 0;
 }
 .info {
   padding-top: 2px;
@@ -169,13 +174,13 @@ img {
   border: 1px solid #f00;
 }
 .name {
-  border-bottom: 1px solid #f00;
   margin-bottom: 2px;
 }
 .notification-content {
   min-height: 32px;
-  background: linear-gradient(#000, #c00000);
-  border: 1px solid #f00;
-  color: white;
+  background: linear-gradient( white, #0000 );
+  border-top: 1px solid white;
+  color: #f00;
   padding: 2px;
+  min-width: 195px;
 }
