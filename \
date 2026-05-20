@@ -40,7 +40,8 @@
 }
 
 body {
-	background: url(horus.png);
+	background: url(zaza.png);
+	background: black;
 	font-family: 'Monaco 9';
 	font-size: 16px;
 	height: 100vh;
@@ -159,7 +160,7 @@ ul {
   background: black;
   padding-left: 3px;
   padding-right: 3px;
-  color: #0f0;
+  color: #ff0033;
   border: 1px solid #c0c0c0;
 }
 .info {
@@ -167,15 +168,4 @@ ul {
 }
 img {
   border: 1px solid #f00;
-}
-.name {
-  border-bottom: 1px solid #f00;
-  margin-bottom: 2px;
-}
-.notification-content {
-  min-height: 32px;
-  background: linear-gradient(#000, #c00000);
-  border: 1px solid #f00;
-  color: white;
-  padding: 2px;
 }
