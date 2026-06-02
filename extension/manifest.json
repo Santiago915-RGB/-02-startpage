@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "xig-extension",
+  "version": "1.0",
+  "description": "extension to save 4chan thread watcher",
+  "permissions": [ "tabs", "storage", "notifications", "downloads" ],
+
+  "host_permissions": [
+	"https://boards.4chan.org/*"
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "64": "icons/64.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "xige@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "background": {
+	"scripts": ["background-script.js"],
+	"type": "module"
+  },
+"action": {
+    "default_icon": "icons/16.png",
+    "default_title": "xig"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://boards.4chan.org/*"],
+	  "js": ["content_script/takethreads.js"]
+    }
+  ]
+}
