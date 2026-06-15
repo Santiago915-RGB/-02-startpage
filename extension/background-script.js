@@ -91,7 +91,7 @@ function notify(message){
 
 		let downloading = browser.downloads.download({
 		  url,
-		  filename: "data.js",
+		  filename: "threads-data.js",
 		  saveAs: false,
 		  conflictAction: "overwrite"
 	  })}, 5000)
