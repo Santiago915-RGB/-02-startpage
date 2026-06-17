@@ -7,19 +7,15 @@ var godThread = []
 let amountOfMessages = 0;
 
 /// storage testing
-function setItem() {
-  console.log("OK");
-}
 
-function gotKitten(item) {
-  console.log(`${item.kitten.name} has ${item.kitten.eyeCount} eyes`);
+let newThreadsState = 3;
+
+function setItem() {
+  console.log("SIGNAL A");
 }
 
 function gotMonster(item) {
-  console.log(`${item.amountOfMessages}`);
-}
-function gotMonsterT(item) {
-  console.log(`${item.amountOfMessages} ${amountOfMessages}`);
+  return item.newThreadsState.value;
 }
 
 
@@ -27,27 +23,24 @@ function onError(error) {
   console.log(error);
 }
 
-let monster = {
-  name: "Kraken",
-  tentacles: true,
-  eyeCount: 10,
-};
+browser.storage.local.set({ newThreadsState }).then(setItem, onError);
+//                                            ^ just a print message after this
 
-let kitten = {
-  name: "Moggy",
-  tentacles: false,
-  eyeCount: 2,
-};
+//newThreadsState = 91;
+//browser.storage.local.set({ newThreadsState }).then(setItem, onError);
 
-browser.storage.local.set({ amountOfMessages }).then(setItem, onError);
+browser.storage.local.get("newThreadsState").then(gotMonster, onError);
 
-browser.storage.local.get("amountOfMessages").then(gotMonster, onError);
+console.log(browser.storage.local.get("newThreadsState").then(gotMonster, onError));
+
 ///
 
 
 function notify(message){
   switch(amountOfMessages){
     case 0:
+	 
+	  console.log(message.length);
 	  for (var i = 0; i < message.length; i++){
 		godThread.push({
 		  title: null,
@@ -85,6 +78,7 @@ function notify(message){
 		  godThread[i].title = fetchTitle(text)
     	});
 	  }
+	// CODE HERE TO MAKE THIS ONLY HAPPEN AFTER CHECKING FOR SAME THREADS
 	  setTimeout(() => {
 		const jsonBlob = new Blob(["window.tData = " + JSON.stringify(godThread, null, 2)], { type: "text/plain" });
 		const url = URL.createObjectURL(jsonBlob);
@@ -95,6 +89,7 @@ function notify(message){
 		  saveAs: false,
 		  conflictAction: "overwrite"
 	  })}, 5000)
+	//
 	break;
 	default:
 	  if (message.length != amountOfThreads){
@@ -106,7 +101,6 @@ function notify(message){
 	break;
   }
 }
-
 
 
 // maybe i should add a cascading effect for the whole text array, so when the first value gets taken it keeps the string sliced for the next part and keeps slicing it until the final function

@@ -20,36 +20,6 @@ window.tData = [
     "threadLink": "https://boards.4chan.org/g/thread/108962096"
   },
   {
-    "title": "",
-    "hour": "01:26:27",
-    "replies": "22\"",
-    "nReplies": "(13)",
-    "board": "/g/",
-    "tContent": "",
-    "img": "i.4cdn.org/g/1780464387549235.jpg",
-    "threadLink": "https://boards.4chan.org/g/thread/108968681"
-  },
-  {
-    "title": "CTYPE html>",
-    "hour": "ead>\r\n  ",
-    "replies": "",
-    "nReplies": "",
-    "board": "/g/",
-    "tContent": "",
-    "img": "tps://s.4cdn.org/css/global.17.css",
-    "threadLink": "https://boards.4chan.org/g/thread/108970139"
-  },
-  {
-    "title": "",
-    "hour": "16:45:32",
-    "replies": "36\"",
-    "nReplies": "",
-    "board": "/g/",
-    "tContent": "Should I keep using artix or should I switch to freebsd? I just found out that...",
-    "img": "i.4cdn.org/g/1780433132254928.png",
-    "threadLink": "https://boards.4chan.org/g/thread/108966357"
-  },
-  {
     "title": "/fglt/ - Friendly GN...",
     "hour": "01:54:59",
     "replies": "320\"",
@@ -102,8 +72,8 @@ window.tData = [
   {
     "title": "/utwg/ - Underemploy...",
     "hour": "15:20:59",
-    "replies": "229\"",
-    "nReplies": "(151)",
+    "replies": "318\"",
+    "nReplies": "(89)",
     "board": "/g/",
     "tContent": "",
     "img": "i.4cdn.org/g/1781205659394791.mp4",
@@ -112,8 +82,8 @@ window.tData = [
   {
     "title": "The New Desktop Thre...",
     "hour": "12:27:19",
-    "replies": "248\"",
-    "nReplies": "(35)",
+    "replies": "290\"",
+    "nReplies": "(2)",
     "board": "/g/",
     "tContent": "",
     "img": "i.4cdn.org/g/1781022439792361.png",
@@ -132,8 +102,8 @@ window.tData = [
   {
     "title": "Jai is the no-coder...",
     "hour": "23:25:02",
-    "replies": "164\"",
-    "nReplies": "(153)",
+    "replies": "226\"",
+    "nReplies": "(215)",
     "board": "/g/",
     "tContent": "From today onwards I officially became a Blow hater.",
     "img": "i.4cdn.org/g/1781407502467159.png",
@@ -153,7 +123,7 @@ window.tData = [
     "title": "",
     "hour": "16:24:55",
     "replies": "17\"",
-    "nReplies": "(9)",
+    "nReplies": "",
     "board": "/g/",
     "tContent": "",
     "img": "i.4cdn.org/g/1781468695600105.jpg",
@@ -168,16 +138,6 @@ window.tData = [
     "tContent": "",
     "img": "i.4cdn.org/g/1781464067639815.jpg",
     "threadLink": "https://boards.4chan.org/g/thread/109056301"
-  },
-  {
-    "title": "",
-    "hour": "12:40:44",
-    "replies": "3\"",
-    "nReplies": "",
-    "board": "/g/",
-    "tContent": "",
-    "img": "i.4cdn.org/g/1781541644850425.png",
-    "threadLink": "https://boards.4chan.org/g/thread/109062836"
   },
   {
     "title": "/comfy/",
