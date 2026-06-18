@@ -10,16 +10,6 @@ window.tData = [
     "threadLink": "https://boards.4chan.org/adv/thread/34611918"
   },
   {
-    "title": "",
-    "hour": "02:36:57",
-    "replies": "75\"",
-    "nReplies": "",
-    "board": "/g/",
-    "tContent": "",
-    "img": "i.4cdn.org/g/1780382217079057.jpg",
-    "threadLink": "https://boards.4chan.org/g/thread/108962096"
-  },
-  {
     "title": "/fglt/ - Friendly GN...",
     "hour": "01:54:59",
     "replies": "320\"",
@@ -72,8 +62,8 @@ window.tData = [
   {
     "title": "/utwg/ - Underemploy...",
     "hour": "15:20:59",
-    "replies": "318\"",
-    "nReplies": "(89)",
+    "replies": "321\"",
+    "nReplies": "(92)",
     "board": "/g/",
     "tContent": "",
     "img": "i.4cdn.org/g/1781205659394791.mp4",
@@ -82,8 +72,8 @@ window.tData = [
   {
     "title": "The New Desktop Thre...",
     "hour": "12:27:19",
-    "replies": "290\"",
-    "nReplies": "(2)",
+    "replies": "323\"",
+    "nReplies": "(33)",
     "board": "/g/",
     "tContent": "",
     "img": "i.4cdn.org/g/1781022439792361.png",
@@ -102,22 +92,12 @@ window.tData = [
   {
     "title": "Jai is the no-coder...",
     "hour": "23:25:02",
-    "replies": "226\"",
-    "nReplies": "(215)",
+    "replies": "255\"",
+    "nReplies": "(244)",
     "board": "/g/",
     "tContent": "From today onwards I officially became a Blow hater.",
     "img": "i.4cdn.org/g/1781407502467159.png",
     "threadLink": "https://boards.4chan.org/g/thread/109050892"
-  },
-  {
-    "title": "",
-    "hour": "13:45:32",
-    "replies": "7\"",
-    "nReplies": "",
-    "board": "/g/",
-    "tContent": "Usecase for this?",
-    "img": "i.4cdn.org/g/1781459132296761.jpg",
-    "threadLink": "https://boards.4chan.org/g/thread/109055727"
   },
   {
     "title": "",

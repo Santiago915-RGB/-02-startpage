@@ -4,45 +4,36 @@ console.log();
 
 browser.runtime.onMessage.addListener(notify);
 var godThread = []
+var dummyThread = []
 let amountOfMessages = 0;
 
-/// storage testing
-
-let newThreadsState = 3;
+let newThreadsState = "init";
 
 function setItem() {
-  console.log("SIGNAL A");
+  //console.log("SIGNAL A");
+  return;
 }
 
-function gotMonster(item) {
-  return item.newThreadsState.value;
+function executeCase(item) {
+  return item;
 }
 
-
-function onError(error) {
-  console.log(error);
-}
-
-browser.storage.local.set({ newThreadsState }).then(setItem, onError);
+browser.storage.local.set({ newThreadsState }).then(setItem); // SET
 //                                            ^ just a print message after this
-
-//newThreadsState = 91;
-//browser.storage.local.set({ newThreadsState }).then(setItem, onError);
-
-browser.storage.local.get("newThreadsState").then(gotMonster, onError);
-
-console.log(browser.storage.local.get("newThreadsState").then(gotMonster, onError));
-
+/*
+browser.storage.local.get("newThreadsState").then(gotPromise, onError);
+*/
 ///
 
 
-function notify(message){
+
+
+
+async function notify(message){
   switch(amountOfMessages){
-    case 0:
-	 
-	  console.log(message.length);
+    case 0: console.log("─────────────────────────────────────"); console.log("CASE 0 EXECUTING")
 	  for (var i = 0; i < message.length; i++){
-		godThread.push({
+		dummyThread.push({
 		  title: null,
 		  hour: null,
 		  replies: null,
@@ -53,33 +44,44 @@ function notify(message){
 	    })
 	  }
 	  for(let i = 0; i < message.length; i++){
-	    godThread[i].threadLink = `https:${message[i].substring(0, message[i].indexOf("#"))}`;
+	    dummyThread[i].threadLink = `https:${message[i].substring(0, message[i].indexOf("#"))}`;
 	  }
-      amountOfMessages++
+      amountOfMessages++;
 	break;
-	case 1:
+
+	case 1:  console.log("CASE 1 EXECUTING")
 	  for(let i = 0; i < message.length; i++){
-		godThread[i].nReplies = message[i];
+		dummyThread[i].nReplies = message[i];
 	  }
 	  amountOfMessages++
 	break;
-	case 2:
-	  for(let i = 0; i < message.length; i++){
-		godThread[i].board = message[i];
-	  }
-	  for (let i = 0; i < message.length; i++){
-		fetch(godThread[i].threadLink)
-		.then(response => response.text())
- 		.then(text => {
-		  godThread[i].replies = fetchTotalReplies(text)
-		  godThread[i].hour = fetchHour(text)
-		  godThread[i].img = fetchImage(text)
-		  godThread[i].tContent = fetchPostContent(text)
-		  godThread[i].title = fetchTitle(text)
-    	});
-	  }
-	// CODE HERE TO MAKE THIS ONLY HAPPEN AFTER CHECKING FOR SAME THREADS
+	case 2: console.log("CASE 2 EXECUTING")
+      let threadUpdate;
+	  console.log(message.length);
+      await browser.storage.local.get("newThreadsState").then(function(item) {
+		  item.newThreadsState == message.length ? threadUpdate = false : threadUpdate = true
+	  });
+	  console.log(threadUpdate);
+
+	  if(threadUpdate){
+        console.log("SIGNAL B")
+	    for(let i = 0; i < message.length; i++){
+		  godThread = dummyThread;
+		  godThread[i].board = message[i];
+	    }
+	    for (let i = 0; i < message.length; i++){
+		  fetch(godThread[i].threadLink)
+		  .then(response => response.text())
+ 		  .then(text => {
+		    godThread[i].replies = fetchTotalReplies(text)
+		    godThread[i].hour = fetchHour(text)
+		    godThread[i].img = fetchImage(text)
+		    godThread[i].tContent = fetchPostContent(text)
+		    godThread[i].title = fetchTitle(text)
+    	  });
+	     }
 	  setTimeout(() => {
+		  console.log(godThread);
 		const jsonBlob = new Blob(["window.tData = " + JSON.stringify(godThread, null, 2)], { type: "text/plain" });
 		const url = URL.createObjectURL(jsonBlob);
 
@@ -87,20 +89,53 @@ function notify(message){
 		  url,
 		  filename: "threads-data.js",
 		  saveAs: false,
-		  conflictAction: "overwrite"
-	  })}, 5000)
-	//
-	break;
+		  conflictAction: "overwrite" 
+	  })}, 4000)
+		  dummyThread = [];
+
+	newThreadsState = message.length;  
+	browser.storage.local.set({ newThreadsState }).then(setItem);
+
+	amountOfMessages = 0;
+  }
+		  else {
+			dummyThread = [];
+			amountOfMessages = 0;
+			return
+		  }
+
+	console.log("CASE 2 EXITING"); break;
 	default:
-	  if (message.length != amountOfThreads){
-		amountOfMessages = 0;
-	  }
-	  else {
-		amountOfMessages++
-	  }
+	  console.log("⚠️ Operation cancelled - " + amountOfMessages)
 	break;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // maybe i should add a cascading effect for the whole text array, so when the first value gets taken it keeps the string sliced for the next part and keeps slicing it until the final function
