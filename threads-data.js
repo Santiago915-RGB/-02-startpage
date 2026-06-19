@@ -120,10 +120,100 @@ window.tData = [
     "threadLink": "https://boards.4chan.org/g/thread/109056301"
   },
   {
+    "title": "",
+    "hour": "17:11:15",
+    "replies": "7\"",
+    "nReplies": "(5)",
+    "board": "/g/",
+    "tContent": "",
+    "img": "i.4cdn.org/g/1781817075557899.png",
+    "threadLink": "https://boards.4chan.org/g/thread/109086496"
+  },
+  {
+    "title": "",
+    "hour": "16:04:05",
+    "replies": "11\"",
+    "nReplies": "(1)",
+    "board": "/g/",
+    "tContent": "",
+    "img": "i.4cdn.org/g/1781813045738468.jpg",
+    "threadLink": "https://boards.4chan.org/g/thread/109086139"
+  },
+  {
+    "title": "",
+    "hour": "15:37:59",
+    "replies": "19\"",
+    "nReplies": "(2)",
+    "board": "/g/",
+    "tContent": "",
+    "img": "i.4cdn.org/g/1781811479362500.png",
+    "threadLink": "https://boards.4chan.org/g/thread/109086004"
+  },
+  {
+    "title": "/mkg/ - Mechanical K...",
+    "hour": "15:33:31",
+    "replies": "56\"",
+    "nReplies": "(5)",
+    "board": "/g/",
+    "tContent": "XBOX HEUG edition",
+    "img": "i.4cdn.org/g/1781724811603524.png",
+    "threadLink": "https://boards.4chan.org/g/thread/109078889"
+  },
+  {
+    "title": "/dpt/ - Daily Progra...",
+    "hour": "03:59:00",
+    "replies": "195\"",
+    "nReplies": "(4)",
+    "board": "/g/",
+    "tContent": "What are you working on, /g/?",
+    "img": "i.4cdn.org/g/1781596740077503.png",
+    "threadLink": "https://boards.4chan.org/g/thread/109067480"
+  },
+  {
+    "title": "/gedg/ - Game and En...",
+    "hour": "08:49:20",
+    "replies": "201\"",
+    "nReplies": "(27)",
+    "board": "/g/",
+    "tContent": "Order of the sinking star edition",
+    "img": "i.4cdn.org/g/1781700560905412.jpg",
+    "threadLink": "https://boards.4chan.org/g/thread/109076297"
+  },
+  {
+    "title": "",
+    "hour": "14:09:01",
+    "replies": "64\"",
+    "nReplies": "",
+    "board": "/g/",
+    "tContent": "",
+    "img": "i.4cdn.org/g/1781719741934248.png",
+    "threadLink": "https://boards.4chan.org/g/thread/109078353"
+  },
+  {
+    "title": "ine\">",
+    "hour": "07:34:01",
+    "replies": "146\"",
+    "nReplies": "(1)",
+    "board": "/g/",
+    "tContent": "Slop edition",
+    "img": "i.4cdn.org/g/1781696041359477.jpg",
+    "threadLink": "https://boards.4chan.org/g/thread/109075953"
+  },
+  {
+    "title": "ine\">",
+    "hour": "05:30:43",
+    "replies": "38\"",
+    "nReplies": "",
+    "board": "/g/",
+    "tContent": "CURRENT EVENT: archive.today is owned by a jihadist or some shit.",
+    "img": "i.4cdn.org/g/1781688643789470.jpg",
+    "threadLink": "https://boards.4chan.org/g/thread/109075434"
+  },
+  {
     "title": "/comfy/",
     "hour": "22:17:37",
     "replies": "179\"",
-    "nReplies": "(1)",
+    "nReplies": "",
     "board": "/wg/",
     "tContent": "Abstraction Edition",
     "img": "i.4cdn.org/wg/1769829457404842.jpg",
