@@ -31,7 +31,7 @@ browser.storage.local.get("newThreadsState").then(gotPromise, onError);
 
 async function notify(message){
   switch(amountOfMessages){
-    case 0: console.log("─────────────────────────────────────"); console.log("CASE 0 EXECUTING")
+    case 0:
 	  for (var i = 0; i < message.length; i++){
 		dummyThread.push({
 		  title: null,
@@ -81,7 +81,6 @@ async function notify(message){
     	  });
 	     }
 	  setTimeout(() => {
-		  console.log(godThread);
 		const jsonBlob = new Blob(["window.tData = " + JSON.stringify(godThread, null, 2)], { type: "text/plain" });
 		const url = URL.createObjectURL(jsonBlob);
 
@@ -104,20 +103,13 @@ async function notify(message){
 			return
 		  }
 
-	console.log("CASE 2 EXITING"); break;
+	console.log("CASE 2 EXITING");
+	console.log("-------------------------------------------------------"); break;
 	default:
 	  console.log("⚠️ Operation cancelled - " + amountOfMessages)
 	break;
   }
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -169,37 +161,92 @@ function fetchTitle(fetchContent){
 		  return noCalc.substring(start_pos,end_pos) }
 		}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function fetchPostContent(fetchContent){
-	let postInnText = fetchContent.slice(fetchContent.search("articleBody") + 13, (fetchContent.indexOf("</blockquote>") - 15))
-	postInnText = postInnText.replace(`<span class="quote">`, ''); 
-	postInnText = postInnText.replace(`</span>`, ''); 
+	let postInnText = fetchContent.slice(fetchContent.search("articleBody") + 13, (fetchContent.indexOf("</blockquote>") - 15)) // ☑
+	postInnText = postInnText.replace(`<span class="quote">`, '').replace(`</span>`, ''); 
 
-	var regex = /&gt;|&lt;|&quot;|&apos;|&amp;/gi;
-	var result;
-	var instances = 0;
-
-
-	let tBreaker = 0;
+	let str_break = null;
 	if (postInnText.indexOf("<br>") != -1) {
-		tBreaker = postInnText.indexOf("<br>");
+		str_break = postInnText.indexOf("<br>");
 	}
-	else if (postInnText.indexOf("</blockquote>") != -1){
-		tBreaker = postInnText.indexOf("</blockquote");
-	}
-	
 
-	let fixedText = postInnText.substring(0, tBreaker)
+	let fixedText;
+	str_break ? fixedText = postInnText.substring(0, str_break) :  fixedText = postInnText; 
 
-	while ( (result = regex.exec(fixedText)) ) {
-    	instances++;
+	let customStr = "Does anyone here care about Headphones? Anyways I &gt;want to upgrade these at around a same budget, I&#039;ve heard the AKG K702 would do because they have an even wider soundstage and better imaging"
+	let customStrSni = ["&gt;", "&lt;", "&amp;", "&quot;", "&apos;", "&#039;"];
+
+	function getIndicesOf(searchStr, str) {
+    	let startIndex = 0, index, current_instances = 0, bloat = 0, instances = 0;
+
+		for(let i = 0; i < searchStr.length; i++){
+    		let searchStrLen = searchStr[i].length;
+    		while ((index = str.indexOf(searchStr[i], startIndex)) > -1) {
+				current_instances++;
+        		startIndex = index + searchStrLen;
+    		}
+			bloat += searchStr[i].length * current_instances;
+			instances += current_instances;
+			current_instances = 0;
+			startIndex = 0;
+		}
+    	return bloat - instances;
 	}
-	
-	if ((fixedText.length - (instances * 3)) > 80){
-		return `${fixedText.slice(0, 79).replace(/\s+$/, '')}...`
+
+
+	console.log(fixedText.length - getIndicesOf(customStrSni, fixedText));
+
+	// up to 68 without html symbols can enter
+	// need to update names in function
+	// use function again for slicing?
+	// detect what is the last word in the string to guide handling of the string
+
+	if ((fixedText.length - getIndicesOf(customStrSni, fixedText)) > 68){
+		return `${fixedText.slice(0, 66)}...`
 	} else { return fixedText }
-
-	//return fixedText
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function fetchImage(fetchContent){
   let fileTextIndex = fetchContent.slice(fetchContent.search("fileText") + 12, (fetchContent.indexOf("KB,") - 6)) 
   var start_pos = fileTextIndex.indexOf(`href=`) + 8;
@@ -208,7 +255,6 @@ function fetchImage(fetchContent){
   return fileTextIndex.substring(start_pos, end_pos)
 }
 
-/////////////////
 
 /*fetch('https://boards.4chan.org/g/thread/108911572/holy-shit')
     .then(response => response.text())

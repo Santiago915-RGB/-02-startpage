@@ -35,7 +35,7 @@
 }
 
 body {
-	background: url(media/wp2.png), black;
+	background: url(media/54770.png), black;
 	font-family: 'Monaco 9';
 	font-size: 16px;
 	height: 100vh;
@@ -172,8 +172,7 @@ bottom: 0px;
     top: 0px; left: 0px;
     width: 16.2rem; height: 100vh;
 	background: #ffffff80;
-	background: #000000c0;
-	background: var(--error-macro);
+	background: #00000080;
 	display: flex;
 	flex-direction: column;
 }
