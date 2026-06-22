@@ -26,9 +26,6 @@ browser.storage.local.get("newThreadsState").then(gotPromise, onError);
 ///
 
 
-
-
-
 async function notify(message){
   switch(amountOfMessages){
     case 0:
@@ -49,22 +46,19 @@ async function notify(message){
       amountOfMessages++;
 	break;
 
-	case 1:  console.log("CASE 1 EXECUTING")
+	case 1:
 	  for(let i = 0; i < message.length; i++){
 		dummyThread[i].nReplies = message[i];
 	  }
 	  amountOfMessages++
 	break;
-	case 2: console.log("CASE 2 EXECUTING")
+	case 2:
       let threadUpdate;
-	  console.log(message.length);
       await browser.storage.local.get("newThreadsState").then(function(item) {
 		  item.newThreadsState == message.length ? threadUpdate = false : threadUpdate = true
 	  });
-	  console.log(threadUpdate);
 
 	  if(threadUpdate){
-        console.log("SIGNAL B")
 	    for(let i = 0; i < message.length; i++){
 		  godThread = dummyThread;
 		  godThread[i].board = message[i];
@@ -96,43 +90,17 @@ async function notify(message){
 	browser.storage.local.set({ newThreadsState }).then(setItem);
 
 	amountOfMessages = 0;
-  }
+}
 		  else {
 			dummyThread = [];
 			amountOfMessages = 0;
 			return
 		  }
-
-	console.log("CASE 2 EXITING");
-	console.log("-------------------------------------------------------"); break;
+	break;
 	default:
-	  console.log("⚠️ Operation cancelled - " + amountOfMessages)
 	break;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// maybe i should add a cascading effect for the whole text array, so when the first value gets taken it keeps the string sliced for the next part and keeps slicing it until the final function
-
-///////////////// fetchingFunctions
 
 function fetchTotalReplies(fetchContent){
  let noCalc = fetchContent.slice(fetchContent.search("commentCount") + 23, (fetchContent.search("commentCount") + 28))
@@ -145,52 +113,9 @@ function fetchHour(fetchContent){
  let hourMade = fetchContent.slice(fetchContent.search("datePublished") + 28, (fetchContent.search("datePublished") + 36))
 		return hourMade;
 }
-function fetchTitle(fetchContent){
- let noCalc = fetchContent.slice(fetchContent.search("headline") + 5, (fetchContent.search("headline") + 73))
-	//                                                             ^ this should be 9 I think
 
-		if(noCalc.indexOf(`content="`) != -1){
-		  return ""
-		}
-		else {
-		  var start_pos = noCalc.indexOf(`>`) + 1;
-		  var end_pos = noCalc.indexOf("</span>", start_pos);
-		  if (noCalc.substring(start_pos,end_pos).length > 23) {
-				return `${noCalc.substring(start_pos,end_pos).slice(0, 20).replace(/\s+$/, '')}...`
-		  } else {
-		  return noCalc.substring(start_pos,end_pos) }
-		}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function fetchPostContent(fetchContent){
-	let postInnText = fetchContent.slice(fetchContent.search("articleBody") + 13, (fetchContent.indexOf("</blockquote>") - 15)) // ☑
-	postInnText = postInnText.replace(`<span class="quote">`, '').replace(`</span>`, ''); 
-
-	let str_break = null;
-	if (postInnText.indexOf("<br>") != -1) {
-		str_break = postInnText.indexOf("<br>");
-	}
-
-	let fixedText;
-	str_break ? fixedText = postInnText.substring(0, str_break) :  fixedText = postInnText; 
-
-	let customStr = "Does anyone here care about Headphones? Anyways I &gt;want to upgrade these at around a same budget, I&#039;ve heard the AKG K702 would do because they have an even wider soundstage and better imaging"
-	let customStrSni = ["&gt;", "&lt;", "&amp;", "&quot;", "&apos;", "&#039;"];
-
-	function getIndicesOf(searchStr, str) {
+var htmlSyms = ["&gt;", "&lt;", "&amp;", "&quot;", "&apos;", "&#039;"];
+function srchSymHTML(searchStr, str) {
     	let startIndex = 0, index, current_instances = 0, bloat = 0, instances = 0;
 
 		for(let i = 0; i < searchStr.length; i++){
@@ -205,47 +130,37 @@ function fetchPostContent(fetchContent){
 			startIndex = 0;
 		}
     	return bloat - instances;
+}
+
+function fetchTitle(fetchContent){
+ let noCalc = fetchContent.slice(fetchContent.search('itemprop="headline">') + 20, fetchContent.indexOf('</span> <span class="nameBlock"'))
+
+	if (noCalc.length - srchSymHTML(htmlSyms, noCalc) > 24){
+		return `${noCalc.slice(0, 22).replace(/\s+$/, '')}...`
+	}
+	else {
+    	return noCalc;
+	}
+}
+
+function fetchPostContent(fetchContent){
+	let postInnText = fetchContent.slice(fetchContent.search("articleBody") + 13, (fetchContent.indexOf("</blockquote>") - 15))
+	postInnText = postInnText.replace(`<span class="quote">`, '').replace(`</span>`, ''); 
+
+	let str_break = null;
+	if (postInnText.indexOf("<br>") != -1) {
+		str_break = postInnText.indexOf("<br>");
 	}
 
+	let fixedText;
+	str_break ? fixedText = postInnText.substring(0, str_break) : fixedText = postInnText; 
 
-	console.log(fixedText.length - getIndicesOf(customStrSni, fixedText));
-
-	// up to 68 without html symbols can enter
-	// need to update names in function
-	// use function again for slicing?
 	// detect what is the last word in the string to guide handling of the string
 
-	if ((fixedText.length - getIndicesOf(customStrSni, fixedText)) > 68){
+	if ((fixedText.length - srchSymHTML(htmlSyms, fixedText)) > 68){
 		return `${fixedText.slice(0, 66)}...`
 	} else { return fixedText }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function fetchImage(fetchContent){
   let fileTextIndex = fetchContent.slice(fetchContent.search("fileText") + 12, (fetchContent.indexOf("KB,") - 6)) 
@@ -254,35 +169,4 @@ function fetchImage(fetchContent){
 
   return fileTextIndex.substring(start_pos, end_pos)
 }
-
-
-/*fetch('https://boards.4chan.org/g/thread/108911572/holy-shit')
-    .then(response => response.text())
-    .then(text => {
-
-
-		return
-	//	  console.log(fetchImage(text)); // seems like 4chan uses the Eastern Daylight Time (EDT) so you will have to tweak this value if your time zone is different
-    });
-
-// console.log(godThread);
-
-
-/*for (let allThreads = 0; allThreads < 12; allThreads++){
-	//console.log(godThread.threadLink[allThreads])
-	fetch("https://boards.4chan.org/g/thread/108868423")
-		.then(response => response.text())
- 		.then(text => {
-			godThread[allThreads].replies = fetchTotalReplies(text)
-
-
-		return
-    });
-
-}*/
-
-// // add greentext stuff - turn each instance of greentext spans into just >'s
-// // reformat variable names n stuff in fetchpostcontent
-// // now to get an object that has all my values of all my threads and let the magic beginnnn
-// save shit
-// 80
+}
