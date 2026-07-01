@@ -1,7 +1,10 @@
 .media
+mesmerizing
 media/favicon.png
 todo.txt
 extension/todo.txt
 media/54770.png
 media/wp2.png
 .gitignore
+extension/icons/favicon.png
+extension/extension-notes.txt
