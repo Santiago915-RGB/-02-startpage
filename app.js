@@ -35,5 +35,9 @@ while (document.getElementsByClassName("level-post")[i].offsetHeight > 13){
 }
 }
 
+for(let i = 0; i < window.nData.length; i++) {
+	document.getElementById("notificationsContainer").innerHTML += `<div class="n-row">
+	  <div class="n-row-content"><div class="image-contents"><img src="${window.nData[i].img}" class="avatar" alt="avatar" loading="lazy" width="37" height="37"><div class="time">2:19:18</div></div><div class="info"><div class="name"><span class="namecont rank1">${window.nData[i].title}</span><span class="level"><span>${window.nData[i].origin}</span></span></div><div class="notification-content"><span class="text">${window.nData[i].content}</span></div></div></div></div>`
+}
 
 //focus on making the json file a js file

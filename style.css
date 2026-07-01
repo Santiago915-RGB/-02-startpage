@@ -188,9 +188,6 @@ bottom: 0px;
     padding-left: 11px;
 	border: 1px solid var(--seco-white);
 	font-size: 16px;
-	border-top: none;
-}
-.n-title:first-of-type{
 	border-top: 1px solid var(--seco-white);
 }
 .n-row {
@@ -268,9 +265,10 @@ bottom: 0px;
   align-items: center;
   margin: auto;
   margin-top:2px;
-position: relative;
+  position: relative;
   transform: translate(0px, 0%);
   left: 0px;
+  word-break: break-all;
 }
 .post-image-container {
   height: 64px;

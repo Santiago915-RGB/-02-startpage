@@ -25,6 +25,31 @@ browser.storage.local.get("newThreadsState").then(gotPromise, onError);
 */
 ///
 
+/*let gettingAll = browser.notification.getAll(){
+  let gettingAll
+}*/
+
+
+
+//////////////////////////////////////////////
+
+function logNotifications(all) {
+  for (const id in all) {
+    console.log(`Title: ${all[id].title}`);
+  }
+}
+
+browser.notifications.getAll().then(logNotifications);
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////
 
 async function notify(message){
   switch(amountOfMessages){
@@ -168,5 +193,4 @@ function fetchImage(fetchContent){
   var end_pos = fileTextIndex.indexOf(`"`, start_pos);
 
   return fileTextIndex.substring(start_pos, end_pos)
-}
 }

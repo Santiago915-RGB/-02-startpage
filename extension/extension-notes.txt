@@ -1,0 +1,25 @@
+CONTENT | BACKGROUND
+
+take information from 4 thread watcher
+
+seems like background script is what i need to store the tw data
+content script 4 4chan
+
+4chan thred all data:
+
+image -static CHECK
+title - X class="no-title" -static CHECK{
+  maybe moving text
+}
+text content -static CHECK
+
+[
+hour -anim CHECK SNCA
+date -anim CHECK SCNA
+]
+
+reply count CHECK SCNA
+new replies - X
+board -static
+
+mk pricing

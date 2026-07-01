@@ -1,0 +1,26 @@
+window.nData = [
+  {
+	"content": "Hello guys! How i can fix thissssssssssssssss?";
+    "title": "Unspoilt Caesarian",
+    "img": "i.4cdn.org/g/1780862281717119.jpg",
+    "origin": "/wg/"
+  },
+  {
+	"content": "Hello guys! How i can fix thissssssssssssssss?";
+    "title": "Unspoilt Caesarian",
+    "img": "i.4cdn.org/g/1780862281717119.jpg",
+    "origin": "youtube"
+  },
+  {
+	"content": "Hello guys! How i can fix thissssssssssssssss?";
+    "title": "Unspoilt Caesarian",
+    "img": "i.4cdn.org/g/1780862281717119.jpg",
+    "origin": "discord"
+  },
+  {
+	"content": "Hello guys! How i can fix thissssssssssssssss?";
+    "title": "Unspoilt Caesarian",
+    "img": "i.4cdn.org/g/1780862281717119.jpg",
+    "origin": "Email"
+  }
+]
