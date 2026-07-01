@@ -6,15 +6,14 @@ v=$(cat ~/job/hub/notifications-data.js)
 
 if [[ $(sed '1!d' ~/job/hub/notifications-data.js  | cut -b 17) == ']' ]] ; then
 	v2=${v::-1}
-	echo $v2 > ${tmpfile}
-	cat ${tmpfile} > notifications-data.js
-	printf " { \"content\": \"$DUNST_BODY\"; \"title\": \"$DUNST_SUMMARY\", \"img\": \"$DUNST_ICON_PATH\", \"origin\": \"$DUNST_APP_NAME\" } ]" >> notifications-data.js
+	echo -n $v2 > ${tmpfile}
+	cat ${tmpfile} > ~/job/hub/notifications-data.js
+	printf " { \"content\": \"$DUNST_BODY\", \"title\": \"$DUNST_SUMMARY\", \"img\": \"b$DUNST_SUMMARY\", \"origin\": \"$DUNST_APP_NAME\" } ]" >> ~/job/hub/notifications-data.js
 	else
-		
 	v2=${v::-2}
 	echo -n $v2 > ${tmpfile}
 	cat ${tmpfile}  > ~/job/hub/notifications-data.js
-	printf ", { \"content\": \"$DUNST_BODY\", \"title\": \"$DUNST_SUMMARY\", \"img\": \"$DUNST_ICON_PATH\", \"origin\": \"$DUNST_APP_NAME\" } ]\n" >> ~/job/hub/notifications-data.js
+	printf ", { \"content\": \"$DUNST_BODY\", \"title\": \"$DUNST_SUMMARY\", \"img\": \"$DUNST_SUMMARY\", \"origin\": \"$DUNST_APP_NAME\" } ]\n" >> ~/job/hub/notifications-data.js
 fi
 
 rm -f ${tmpfile}

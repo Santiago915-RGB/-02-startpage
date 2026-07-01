@@ -20,8 +20,22 @@ updateClock();
 // threads function !!!
 
 //console.log(window.tData);
+function notificationOriginColor (origin) {
+	switch (origin) {
+	  case "Firefox": return "#ff00ff"; break;
+	  case "qBittorrent": return "#00ffff"; break;
+	  default: return "#ff0000"; break;
+	}
+}
+function notificationImgOrigin (origin) {
+	switch (origin) {
+	  case "Firefox": return "https://i.ibb.co/vvLQ09pG/flesh.png"; break;
+	  case "qBittorrent": return "https://i.ibb.co/Y9Z2bfc/qb.png"; break;
+	  default: return "https://i.ibb.co/96hCChP/mrmaid.jpg"; break;
+	}
+}
 
-let yous = [true, false, false, true, true, false, false, false, true]
+let yous = [false, false, false ]
 
 // change the extension to get data about getting a (you) in posts
 
@@ -37,7 +51,7 @@ while (document.getElementsByClassName("level-post")[i].offsetHeight > 13){
 
 for(let i = 0; i < window.nData.length; i++) {
 	document.getElementById("notificationsContainer").innerHTML += `<div class="n-row">
-	  <div class="n-row-content"><div class="image-contents"><img src="${window.nData[i].img}" class="avatar" alt="avatar" loading="lazy" width="37" height="37"><div class="time">2:19:18</div></div><div class="info"><div class="name"><span class="namecont rank1">${window.nData[i].title}</span><span class="level"><span>${window.nData[i].origin}</span></span></div><div class="notification-content"><span class="text">${window.nData[i].content}</span></div></div></div></div>`
+	  <div class="n-row-content"><div class="image-contents"><img src="${notificationImgOrigin(window.nData[i].origin)}" class="avatar" alt="avatar" loading="lazy" width="37" height="37"><div class="time">2:19:18</div></div><div class="info"><div class="name"><span class="namecont rank1">${window.nData[i].title}</span><span class="level"><span style="color: ${notificationOriginColor(window.nData[i].origin)};">${window.nData[i].origin}</span></span></div><div class="notification-content"><span class="text">${window.nData[i].content}</span></div></div></div></div>`
 }
 
 //focus on making the json file a js file

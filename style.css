@@ -227,7 +227,7 @@ bottom: 0px;
 }
 .image-contents > img {
   border: 1px solid #f00;
-  padding-left: 1px;
+  margin-left: 1px;
 }
 .level {
   background: black;
