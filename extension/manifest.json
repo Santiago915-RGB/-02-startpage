@@ -4,6 +4,11 @@
   "version": "1.0",
   "description": "extension to save 4chan thread watcher",
   "permissions": [ "tabs", "storage", "notifications", "downloads" ],
+  "browser_specific_settings": {
+	"gecko": {
+	  "id": "s99503294@gmail.com"
+	}
+  },
 
   "host_permissions": [
 	"https://boards.4chan.org/*"
