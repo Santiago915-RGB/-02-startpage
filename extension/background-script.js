@@ -10,7 +10,6 @@ let amountOfMessages = 0;
 let newThreadsState = "init";
 
 function setItem() {
-  //console.log("SIGNAL A");
   return;
 }
 
@@ -18,39 +17,7 @@ function executeCase(item) {
   return item;
 }
 
-browser.storage.local.set({ newThreadsState }).then(setItem); // SET
-//                                            ^ just a print message after this
-/*
-browser.storage.local.get("newThreadsState").then(gotPromise, onError);
-*/
-///
-
-/*let gettingAll = browser.notification.getAll(){
-  let gettingAll
-}*/
-
-
-
-//////////////////////////////////////////////
-
-function logNotifications(all) {
-  for (const id in all) {
-    console.log(`Title: ${all[id].title}`);
-  }
-}
-
-browser.notifications.getAll().then(logNotifications);
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////
-
+browser.storage.local.set({ newThreadsState }).then(setItem);
 async function notify(message){
   switch(amountOfMessages){
     case 0:
@@ -129,7 +96,6 @@ async function notify(message){
 
 function fetchTotalReplies(fetchContent){
  let noCalc = fetchContent.slice(fetchContent.search("commentCount") + 23, (fetchContent.search("commentCount") + 28))
-		// ^ these magic numbers are for getting the value `"(number of replies)"`
 		var start_pos = noCalc.indexOf(`"`) + 1;
 		var end_pos = noCalc.indexOf(`"`, start_pos);
 		return noCalc.substring(start_pos,(end_pos - 2)); 
@@ -160,8 +126,10 @@ function srchSymHTML(searchStr, str) {
 function fetchTitle(fetchContent){
  let noCalc = fetchContent.slice(fetchContent.search('itemprop="headline">') + 20, fetchContent.indexOf('</span> <span class="nameBlock"'))
 
+	if (noCalc.search("<head><meta charset") > -1) return "";
+
 	if (noCalc.length - srchSymHTML(htmlSyms, noCalc) > 24){
-		return `${noCalc.slice(0, 22).replace(/\s+$/, '')}...`
+		return `${noCalc.slice(0, 20).replace(/\s+$/, '')}...`
 	}
 	else {
     	return noCalc;

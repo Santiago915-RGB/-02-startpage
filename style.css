@@ -175,11 +175,11 @@ bottom: 0px;
 	background: #00000080;
 	display: flex;
 	flex-direction: column;
+	overflow: scroll;
 }
 .n-feed {
     width: 16.2rem;
     word-break: break-all;
-    overflow-y: scroll;
 }
 .n-title {
     background: var(--main-gradient);
@@ -309,6 +309,9 @@ bottom: 0px;
   text-align: center;
   padding-right: 1px;
 }
+.threadTitle {
+	transform: translate(0px, 0%);
+}
 .mrd::selection {
   color: #000;
 }
@@ -328,6 +331,6 @@ details[open] summary::marker {
   margin: auto;
 }
 
-.n-feed {
+.notification-container {
 	scrollbar-color: transparent transparent;
 }
